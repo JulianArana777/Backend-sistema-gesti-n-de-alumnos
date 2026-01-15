@@ -30,7 +30,7 @@ public class NotaController {
             @RequestParam Double valor
     ) {
         return notaService.registrarNota(alumnoId, materiaId, valor);
-    }
+    }    
 
     // Listar notas x alumno
     @GetMapping("/alumno/{alumnoId}")
