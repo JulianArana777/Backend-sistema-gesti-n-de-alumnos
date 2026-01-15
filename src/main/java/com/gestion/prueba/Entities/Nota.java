@@ -2,6 +2,7 @@ package com.gestion.prueba.Entities;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,10 +35,12 @@ public class Nota {
     private LocalDate fechaRegistro;
     @ManyToOne()
     @JoinColumn(name="alumno_id")
+    @JsonIgnore
     private Alumno alumno;
 
     @ManyToOne
     @JoinColumn(name = "materia_id")
+    @JsonIgnore
     private Materia materia;
 
 

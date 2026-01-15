@@ -1,9 +1,9 @@
 Variables de entorno:
  
- DB_URI="jdbc:mysql://localhost:3306/prueba"
- DB_USER="root"
- DB_PASSWORD="password"
- DB_DRIVER="com.mysql.cj.jdbc.Driver"
+ export DB_URI="jdbc:mysql://localhost:3306/prueba"
+ export DB_USER="root"
+ export DB_PASSWORD="password"
+ export DB_DRIVER="com.mysql.cj.jdbc.Driver"
 
 
 Comandos para ejecturar el proyecto: 
