@@ -23,6 +23,8 @@ public class NotaService {
     private final AlumnoRepository alumnoRepository;
     private final MateriaRepository materiaRepository;
 
+
+    //Registrar una nota dado una id de alumno, materia y un valor
     public Nota registrarNota(Long alumnoId, Long materiaId, Double valor) {
         Alumno alumno = alumnoRepository.findById(alumnoId)
                 .orElseThrow(() -> new RuntimeException("Alumno no encontrado"));
@@ -40,9 +42,13 @@ public class NotaService {
         return notaRepository.save(nota);
     }
 
+    //Listar notas x Alumno Id
+
     public List<Nota> listarPorAlumno(Long alumnoId) {
         return notaRepository.findByAlumnoId(alumnoId);
     }
+
+    //Listar nota x Alumno ID y Materia Id
 
     public List<Nota> listarPorAlumnoYMateria(Long alumnoId, Long materiaId) {
         return notaRepository.findByAlumnoIdAndMateriaId(alumnoId, materiaId);

@@ -16,18 +16,26 @@ public class AlumnoService {
 
     private final AlumnoRepository alumnoRepository;
 
+
+    //Crear Alumno
     public Alumno crear(Alumno alumno) {
         return alumnoRepository.save(alumno);
     }
 
+
+    //Listar todos los alumnos
     public List<Alumno> listar() {
         return alumnoRepository.findAll();
     }
+
+    //Listar Alumnos x Id
 
     public Alumno buscarPorId(Long id) {
         return alumnoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Alumno no encontrado"));
     }
+
+    // Actualizar un alumno
 
     public Alumno actualizar(Long id, Alumno alumno) {
         Alumno existente = buscarPorId(id);
@@ -37,6 +45,8 @@ public class AlumnoService {
         existente.setFechaNacimiento(alumno.getFechaNacimiento());
         return alumnoRepository.save(existente);
     }
+
+    //Eliminar un alumno
 
     public void eliminar(Long id) {
         alumnoRepository.deleteById(id);

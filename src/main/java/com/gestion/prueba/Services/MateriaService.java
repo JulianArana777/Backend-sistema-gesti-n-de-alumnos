@@ -15,19 +15,23 @@ import lombok.RequiredArgsConstructor;
 public class MateriaService {
     private final MateriaRepository materiaRepository;
 
+    //Crear una materia
     public Materia crear(Materia materia) {
         return materiaRepository.save(materia);
     }
 
+    //Listar todas las materias 
     public List<Materia> listar() {
         return materiaRepository.findAll();
     }
 
+    // Listar una materia x Id
     public Materia buscarPorId(Long id) {
         return materiaRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Materia no encontrada"));
     }
 
+    //Actualizar una Materia
     public Materia actualizar(Long id, Materia materia) {
         Materia existente = buscarPorId(id);
         existente.setNombre(materia.getNombre());
@@ -35,6 +39,8 @@ public class MateriaService {
         existente.setCreditos(materia.getCreditos());
         return materiaRepository.save(existente);
     }
+
+    //Eliminar una Materia
 
     public void eliminar(Long id) {
         materiaRepository.deleteById(id);

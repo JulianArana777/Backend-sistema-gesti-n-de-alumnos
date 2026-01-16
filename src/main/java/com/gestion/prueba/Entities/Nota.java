@@ -35,12 +35,12 @@ public class Nota {
     private LocalDate fechaRegistro;
     @ManyToOne()
     @JoinColumn(name="alumno_id")
-    @JsonIgnore
+    @JsonIgnore//Evitar bucles infinitos a la hora de mover la info con un json
     private Alumno alumno;
 
     @ManyToOne
-    @JoinColumn(name = "materia_id")
-    @JsonIgnore
+    @JoinColumn(name = "materia_id")    
+    @JsonIgnore //Evitar bucles infinitos a la hora de mover la info con un json
     private Materia materia;
 
 
